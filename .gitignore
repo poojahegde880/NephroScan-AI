@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+.env.local
+*.log
+.DS_Store
+node_modules/
+backend/venv/
+backend/uploads/
+.env
+dist/
+__pycache__/
+*.pyc
+backend/model/*.h5
