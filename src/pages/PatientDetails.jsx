@@ -200,7 +200,7 @@ export default function PatientDetails() {
               <h3 className="text-base font-semibold">Original CT Scan</h3>
             </div>
             <img
-              src={`http://127.0.0.1:5000/uploads/${patient.original_image}`}
+              src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${patient.original_image}`}
               alt="Original CT"
               className="w-full rounded-xl border border-slate-100 shadow-sm"
             />
@@ -212,7 +212,7 @@ export default function PatientDetails() {
               <h3 className="text-base font-semibold">Grad-CAM Heatmap</h3>
             </div>
             <img
-              src={`http://127.0.0.1:5000/uploads/${patient.gradcam_image}`}
+              src={`${import.meta.env.VITE_API_BASE_URL}/uploads/${patient.gradcam_image}`}
               alt="GradCAM"
               className="w-full rounded-xl border border-slate-100 shadow-sm"
             />
