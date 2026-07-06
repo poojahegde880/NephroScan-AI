@@ -9,6 +9,7 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
+cursor.execute("DROP TABLE IF EXISTS patient_history")
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS patient_history (
