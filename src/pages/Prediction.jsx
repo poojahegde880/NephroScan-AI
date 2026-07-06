@@ -81,7 +81,7 @@ formData.append("albumin", form.albumin);
 formData.append("sugar", form.sugar);
 
     const result = await predictCKD(formData)
-    console.log(result);
+   
     const BACKEND = "https://nephroscan-ai-production.up.railway.app";
 
 const gradcamUrl = `${BACKEND}/uploads/${result.gradcam}`;

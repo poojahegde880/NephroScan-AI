@@ -38,7 +38,7 @@ const [patients, setPatients] = useState([]);
 
 const [loading, setLoading] = useState(true);
 useEffect(() => {
-  console.log("API URL =", import.meta.env.VITE_API_BASE_URL);
+  
   fetch(`${import.meta.env.VITE_API_BASE_URL}/api/patients`)
     .then((res) => res.json())
     .then((data) => {

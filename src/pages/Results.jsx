@@ -64,7 +64,7 @@ export default function Results() {
 // };
 const downloadPDF = () => {
 
-console.log("location.state =", location.state);
+
 
 generatePDF({
   patient,
@@ -152,10 +152,10 @@ generatePDF({
                 src={image}
                 alt="CT Scan"
                 className="h-full w-full object-contain"
-                onLoad={() => console.log("CT Loaded:", image)}
+                
                 onError={(e) => {
-                  console.log("CT Failed:", image);
-                  console.log(e);
+                  
+                
                 }}
               />
             </div>
