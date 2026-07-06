@@ -82,7 +82,9 @@ formData.append("sugar", form.sugar);
 
     const result = await predictCKD(formData)
     console.log(result);
-    const gradcamUrl = `http://127.0.0.1:5000/uploads/${result.gradcam}`
+    const BACKEND = "https://nephroscan-ai-production.up.railway.app";
+
+const gradcamUrl = `${BACKEND}/uploads/${result.gradcam}`;
 
     notify("Prediction completed!", "success")
 
@@ -90,8 +92,8 @@ formData.append("sugar", form.sugar);
   state: {
     patient: form,
     fileName: result.image,
-    image: `http://127.0.0.1:5000/uploads/${result.image}`,
-    gradcam: `http://127.0.0.1:5000/uploads/${result.gradcam}`,
+    image: `${BACKEND}/uploads/${result.image}`,
+    gradcam: `${BACKEND}/uploads/${result.gradcam}`,
     result,
   },
 })
