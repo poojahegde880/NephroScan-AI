@@ -1,12 +1,14 @@
+import os
 import mysql.connector
 
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",      # Change this if your MySQL root user has a password
-    database="nephroscan"
+    host=os.getenv("MYSQLHOST"),
+    user=os.getenv("MYSQLUSER"),
+    password=os.getenv("MYSQLPASSWORD"),
+    database=os.getenv("MYSQLDATABASE"),
+    port=int(os.getenv("MYSQLPORT"))
 )
 
 cursor = db.cursor(dictionary=True)
 
-print("✅ Connected to MySQL successfully!")
+print("✅ Connected to Railway MySQL successfully!")
