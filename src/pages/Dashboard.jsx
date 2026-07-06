@@ -38,7 +38,7 @@ const [patients, setPatients] = useState([]);
 
 const [loading, setLoading] = useState(true);
 useEffect(() => {
-  fetch("http://127.0.0.1:5000/api/patients")
+  fetch(`${import.meta.env.VITE_API_BASE_URL}/api/patients`)
     .then((res) => res.json())
     .then((data) => {
       setPatients(data);
@@ -154,8 +154,8 @@ const downloadPatientPDF = async (p) => {
       confidence: Number(p.confidence),
     },
 
-    image: `http://127.0.0.1:5000/uploads/${p.original_image}`,
-    gradcam: `http://127.0.0.1:5000/uploads/${p.gradcam_image}`,
+    image: `${import.meta.env.VITE_API_BASE_URL}/uploads/${p.original_image}`,
+    gradcam: `${import.meta.env.VITE_API_BASE_URL}/uploads/${p.gradcam_image}`,
     fileName: p.original_image,
   });
 };
