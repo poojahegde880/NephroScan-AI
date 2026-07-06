@@ -43,7 +43,7 @@ useEffect(() => {
     .then((res) => res.json())
     .then((data) => {
       setPatients(data);
-      console.log("Patients:", data);
+     
       setLoading(false);
     })
     .catch((err) => {
@@ -163,7 +163,7 @@ const downloadPatientPDF = async (p) => {
 
   return (
     <div className="container-page py-8 sm:py-10">
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-ink-950 sm:text-3xl">Patient History Dashboard</h1>
           <p className="mt-1.5 text-sm text-ink-500">Review past predictions, trends, and outcomes.</p>
@@ -186,10 +186,10 @@ const downloadPatientPDF = async (p) => {
       </div>
 
       {/* Charts */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-5">
-        <Card className="lg:col-span-3">
+      <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-5">
+        <Card className="xl:col-span-3">
           <CardHeader title="Weekly Prediction Trend" subtitle="CKD vs Normal predictions over the past 7 days" />
-          <div className="h-64">
+          <div className="h-72 sm:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={TREND_DATA}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#eaeef2" vertical={false} />
@@ -214,9 +214,9 @@ const downloadPatientPDF = async (p) => {
           </div>
         </Card>
 
-        <Card className="lg:col-span-2">
+        <Card className="xl:col-span-2">
           <CardHeader title="Prediction Distribution" subtitle="All-time share" />
-          <div className="h-64">
+          <div className="h-72 sm:h-80">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie data={DIST_DATA} dataKey="value" nameKey="name" innerRadius={55} outerRadius={85} paddingAngle={3}>
@@ -236,14 +236,14 @@ const downloadPatientPDF = async (p) => {
       <Card padded={false} className="mt-6 overflow-hidden">
         <div className="flex flex-col gap-3 border-b border-ink-100 p-5 sm:flex-row sm:items-center sm:justify-between">
           <h3 className="text-base font-semibold text-ink-900">Prediction History</h3>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex w-full flex-col gap-3 md:w-auto md:flex-row">
             <div className="relative">
               <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-400" />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search patient or ID…"
-                className="h-10 w-full rounded-xl border border-ink-200 bg-white pl-9 pr-3 text-sm focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:w-56"
+                className="h-10 w-full rounded-xl border border-ink-200 bg-white pl-9 pr-3 text-sm focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-100 w-full md:w-56"
               />
             </div>
             <div className="relative">
@@ -252,7 +252,7 @@ const downloadPatientPDF = async (p) => {
                 type="date"
                 value={dateFilter}
                 onChange={(e) => setDateFilter(e.target.value)}
-                className="h-10 w-full rounded-xl border border-ink-200 bg-white pl-9 pr-3 text-sm focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:w-44"
+                className="h-10 w-full rounded-xl border border-ink-200 bg-white pl-9 pr-3 text-sm focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-100 w-full md:w-44"
               />
             </div>
           </div>
@@ -268,7 +268,7 @@ const downloadPatientPDF = async (p) => {
           />
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+            <table className="min-w-[700px] w-full text-left text-sm">
               <thead>
                 <tr className="border-b border-ink-100 text-xs uppercase tracking-wide text-ink-400">
                   <th className="px-5 py-3 font-medium">Patient</th>
