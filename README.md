@@ -1,156 +1,79 @@
 # 🩺 NephroScan AI
 
-An Explainable AI-powered Chronic Kidney Disease (CKD) Detection System using CT Scan images and clinical parameters.
-
-![React](https://img.shields.io/badge/Frontend-React-blue)
-![Flask](https://img.shields.io/badge/Backend-Flask-black)
-![TensorFlow](https://img.shields.io/badge/AI-TensorFlow-orange)
-![MySQL](https://img.shields.io/badge/Database-MySQL-blue)
+An AI-powered Chronic Kidney Disease (CKD) Detection System that uses Deep Learning and Grad-CAM to analyze CT scan images, generate explainable predictions, maintain patient history, and produce downloadable PDF reports.
 
 ---
 
-## 📖 Overview
+## 🚀 Live Demo
 
-NephroScan AI is a web-based clinical decision support system that predicts Chronic Kidney Disease (CKD) from CT scan images using a deep learning model.
-
-The application combines AI prediction with Explainable AI (Grad-CAM) to help users understand why the model made its decision.
+- 🌐 Frontend: https://nephroscan-ai.netlify.app
+- ⚙️ Backend: https://nephroscan-ai-production.up.railway.app
 
 ---
 
 ## ✨ Features
 
-- AI-based CKD Prediction
-- Explainable AI using Grad-CAM
-- Patient Management Dashboard
-- Patient History
-- Search & Filter
-- PDF Report Generation
-- Clinical Parameter Recording
-- Confidence Score
-- Risk Level Classification
-- Responsive User Interface
-
----
-
-## 🧠 AI Model
-
-- TensorFlow / Keras CNN
-- Input Size: 250 × 250
-- Classes:
-  - Chronic Kidney Disease
-  - Normal
-- Explainability:
-  - Grad-CAM Heatmap
+- 🔍 AI-based CKD prediction from CT scan images
+- 🧠 TensorFlow/Keras deep learning model
+- 🔥 Grad-CAM heatmap visualization
+- 👤 Patient history management
+- 📊 Dashboard with prediction analytics
+- 📄 Downloadable PDF medical reports
+- 🗄️ MySQL database integration
+- ☁️ Cloud deployment using Railway and Netlify
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-
-- React (Vite)
+- React
+- Vite
 - Tailwind CSS
-- Framer Motion
-- Lucide React
+- Axios
 
 ### Backend
-
 - Flask
-- TensorFlow
+- TensorFlow / Keras
 - OpenCV
-- MySQL
+- MySQL Connector
 
-### Explainable AI
+### Database
+- MySQL (Railway)
 
-- Grad-CAM
+### Deployment
+- Netlify
+- Railway
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-```
-NephroScan-AI
-│
-├── backend
-│   ├── routes
-│   ├── gradcam
-│   ├── model
-│   ├── utils
-│   └── app.py
-│
-├── src
-│
-├── public
-│
-├── package.json
-│
-└── README.md
+```text
+frontend/
+backend/
+model/
+routes/
+utils/
+gradcam/
 ```
 
 ---
 
-## 🚀 Installation
+## 🔄 Workflow
 
-### Frontend
-
-```bash
-npm install
-npm run dev
-```
-
-### Backend
-
-```bash
-cd backend
-
-pip install -r requirements.txt
-
-python app.py
-```
+1. Upload a CT scan image.
+2. AI model predicts CKD or Normal.
+3. Grad-CAM heatmap is generated.
+4. Patient information is stored in MySQL.
+5. PDF report is generated.
+6. Dashboard displays patient history and analytics.
 
 ---
 
 ## 📸 Screenshots
 
-### Home Page
-
-![Home](screenshots/Home.png)
-
----
-
-### Analysis Results
-
-![Results](screenshots/Result.png)
-
----
-
-### Patient History
-
-![History](screenshots/Analysis1.png)
-
----
-
-### Patient Details
-
-![Patient](screenshots/Analysis.png)
-
----
-
-### Grad-CAM Heatmap
-
-![GradCAM](screenshots/Result.png)
-
----
-
-## 🔮 Future Improvements
-
-- Multi-class Kidney Disease Detection
-- Cloud Deployment
-- Doctor Login
-- Patient Authentication
-- REST API Documentation
-- Model Versioning
-- Medical Report Analytics
+(Add screenshots here later)
 
 ---
 
@@ -158,4 +81,4 @@ python app.py
 
 **Pooja Hegde**
 
-MCA Graduate | Software Developer | AI Enthusiast
+GitHub: https://github.com/poojahegde880
