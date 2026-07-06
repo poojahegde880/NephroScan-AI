@@ -11,4 +11,8 @@ db = mysql.connector.connect(
 
 cursor = db.cursor(dictionary=True)
 
-print("✅ Connected to Railway MySQL successfully!")
+print("HOST =", os.getenv("MYSQLHOST"))
+print("USER =", os.getenv("MYSQLUSER"))
+print("DATABASE =", os.getenv("MYSQLDATABASE"))
+print("PORT =", os.getenv("MYSQLPORT"))
+print("✅ Connected")
