@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Base URL is read from the environment so the same build can point at
 // staging / production inference services without a code change.
-const BASE_URL = "http://127.0.0.1:5000"
+const BASE_URL = "https://nephroscan-ai-production.up.railway.app"
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
