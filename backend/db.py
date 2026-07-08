@@ -6,8 +6,11 @@ db = mysql.connector.connect(
     user=os.getenv("MYSQLUSER"),
     password=os.getenv("MYSQLPASSWORD"),
     database=os.getenv("MYSQLDATABASE"),
-    port=int(os.getenv("MYSQLPORT"))
+    port=int(os.getenv("MYSQLPORT")),
+    autocommit=True
 )
+
+db.reconnect(attempts=3, delay=2)
 
 cursor = db.cursor(dictionary=True)
 
@@ -32,8 +35,6 @@ CREATE TABLE IF NOT EXISTS patient_history (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
-
-db.commit()
 
 print("✅ Database connected.")
 print("✅ patient_history table ready.")

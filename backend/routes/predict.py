@@ -79,6 +79,9 @@ def predict_api():
 
     risk_level = "High" if prediction in ["CKD", "Chronic"] else "Low"
 
+    if not db.is_connected():
+    db.reconnect(attempts=3, delay=2)
+
     cursor.execute("""
         INSERT INTO patient_history (
             report_id,

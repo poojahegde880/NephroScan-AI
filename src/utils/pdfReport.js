@@ -331,7 +331,7 @@ export const generatePDF = async ({
         IMG_H - 3
       );
     } else {
-      console.log("GradCAM missing");
+      
     }
   } catch (err) {
     console.error("PDF IMAGE ERROR:", err);
