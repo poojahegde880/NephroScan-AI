@@ -1,4 +1,4 @@
-from db import db, cursor
+from db import get_db
 from flask import Blueprint, request, jsonify
 import os
 from werkzeug.utils import secure_filename
@@ -79,8 +79,49 @@ def predict_api():
 
     risk_level = "High" if prediction in ["CKD", "Chronic"] else "Low"
 
-    if not db.is_connected():
-    db.reconnect(attempts=3, delay=2)
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        INSERT INTO patient_history (
+            report_id,
+            patient_name,
+            age,
+            gender,
+            blood_pressure,
+            creatinine,
+            hemoglobin,
+            albumin,
+            sugar,
+            prediction,
+            confidence,
+            risk_level,
+            original_image,
+            gradcam_image,
+            pdf_name
+        )
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    """, (
+        report_id,
+        request.form.get("name"),
+        request.form.get("age"),
+        request.form.get("gender"),
+        request.form.get("bloodPressure"),
+        request.form.get("creatinine"),
+        request.form.get("hemoglobin"),
+        request.form.get("albumin"),
+        request.form.get("sugar"),
+        prediction,
+        round(confidence, 2),
+        risk_level,
+        filename,
+        gradcam_filename,
+        ""
+    ))
+
+    db.commit()
+    cursor.close()
+    db.close()
 
     cursor.execute("""
         INSERT INTO patient_history (

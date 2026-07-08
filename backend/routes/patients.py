@@ -1,13 +1,13 @@
 from flask import Blueprint, jsonify
-from db import cursor
+from db import get_db
 
 patients_bp = Blueprint("patients", __name__)
 
 @patients_bp.route("/api/patients", methods=["GET"])
 def get_patients():
 
-    if not db.is_connected():
-    db.reconnect(attempts=3, delay=2)
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
 
     cursor.execute("""
         SELECT *
@@ -16,5 +16,8 @@ def get_patients():
     """)
 
     patients = cursor.fetchall()
+
+    cursor.close()
+    db.close()
 
     return jsonify(patients)
